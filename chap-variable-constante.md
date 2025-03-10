@@ -256,6 +256,46 @@ echo $message;
 
 
 ```php
+$a = 1;
+$b = 2;
+$c = 3;
+
+printf('$a %d, $b %d, $c %d', $a, $b, $c);
+echo "\n";
+// algo variable temporaire
+$t = $a;
+$a = $c;
+$c = $b;
+$b = $t;
+
+echo "\n";
+
+printf('$a %d, $b %d, $c %d', $a, $b, $c);
+
+
+echo "\n";
+
+$a = 1;
+$b = 2;
+$c = 3;
+
+// algo 
+$a = $a + $b;
+$b = $a - $b;
+$c =  $a - $b;
+printf('$a %d, $b %d, $c %d', $a, $b, $c);
+
+echo "\n";
+
+$a = 1;
+$b = 2;
+$c = 3;
+
+// assignation par décomposition 
+[$a, $b, $c] = [$c, $a, $b] ;
+
+printf('$a %d, $b %d, $c %d', $a, $b, $c);
+
 ```
 
 ---
@@ -269,65 +309,13 @@ echo $message;
 **Indication :** Vous pouvez toujours utiliser l'addition et la soustraction pour effectuer l'échange.
 
 ```php
+$x = 10;
+$y = 20;
 
-```
+// Inversion des valeurs
+$x = $x + $y;  // $x contient maintenant la somme des deux variables
+$y = $x - $y;  // $y devient la valeur initiale de $x
+$x = $x - $y;  // $x devient la valeur initiale de $y
 
----
-
-### **Exercice 3 : Calculer la somme des carrés de deux variables**
-
-**Objectif :** Calculez la somme des carrés de deux variables sans utiliser de fonction ou de boucle.
-
-**Consigne :** Créez deux variables `$a` et `$b` et calculez la somme de leurs carrés. Affichez le résultat.
-
-**Indication :** Vous pouvez utiliser l’opérateur `*` pour calculer le carré d’un nombre.
-
-
-```php
-
-```
-
----
-
-### **Exercice 4 : Vérifier si un nombre est pair ou impair**
-
-**Objectif :** Vérifiez si un nombre donné est pair ou impair sans utiliser de condition `if`.
-
-**Consigne :** Créez une variable `$n` et vérifiez si ce nombre est pair ou impair.
-
-**Indication :** Utilisez l’opérateur modulo `%` pour déterminer si le nombre est divisible par 2.
-
-
-```php
-
-```
-
----
-
-### **Exercice 5 : Calculer le produit de trois variables**
-
-**Objectif :** Multipliez trois variables ensemble sans utiliser de parenthèses.
-
-**Consigne :** Créez trois variables `$a`, `$b`, et `$c`, et calculez leur produit.
-
-**Indication :** Vous pouvez multiplier directement les valeurs sans besoin de parenthèses.
-
-
-```php
-
-```
-
----
-
-### **Exercice 6 : Calculer la différence de carrés de deux variables**
-
-**Objectif :** Calculez la différence de carrés de deux variables.
-
-**Consigne :** Créez deux variables `$a` et `$b` et calculez la différence entre le carré de `$a` et le carré de `$b`.
-
-**Indication :** Utilisez l’opérateur `*` pour calculer les carrés des variables et faites la soustraction ensuite.
-
-
-```php
-
+echo "x = $x, y = $y";  // Affiche : x = 20, y = 10
 ```

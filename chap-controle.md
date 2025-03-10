@@ -179,22 +179,7 @@ La boucle `foreach` est utilisée pour parcourir les éléments d'un tableau.
   }
 ```
 
----
-
-### **Exercice 1 : Calcul des puissances**
-
-Écrivez un programme PHP qui calcule la puissance d'un nombre. La fonction devra prendre deux arguments :
-- La base `x`
-- L'exposant `n`
-
-Implémentez une boucle pour effectuer le calcul. Vous ne devez pas utiliser l'opérateur `**`.
-
-**Exemple :**
-Si l'utilisateur entre `2` pour la base et `3` pour l'exposant, la fonction doit retourner `8` (car 2^3 = 8).
-
----
-
-### **Exercice 2 : Triangle de nombres**
+### **Exercice  Triangle de nombres**
 
 Écrivez un programme PHP qui affiche un triangle de nombres de cette forme, en utilisant une boucle `for` :
 ```
@@ -215,25 +200,3 @@ Le nombre de lignes doit être défini par une variable `$n` que l'utilisateur p
 
 **Exemple :**
 Si l'entrée est "Hello", la sortie doit être "olleH".
-
----
-
-### **Exercice 4 : Compteur d'occurences dans un tableau**
-
-Écrivez une fonction PHP qui prend un tableau d'entiers et un nombre cible. La fonction doit retourner le nombre d'occurrences de ce nombre dans le tableau.
-
-**Exemple :**
-```php
-$numbers = [1, 2, 2, 3, 4, 2, 5];
-$target = 2;
-```
-La fonction doit retourner `3` (car `2` apparaît 3 fois dans le tableau).
-
----
-
-### **Exercice 5 : Fibonacci avec une boucle**
-
-Écrivez un programme PHP qui génère et affiche les premiers `n` termes de la suite de Fibonacci, où `n` est un nombre que l'utilisateur peut choisir. Utilisez une boucle pour générer la suite. Ne devez pas utiliser de fonction récursive.
-
-**Exemple :**
-Si l'utilisateur entre `6` pour `n`, le programme doit afficher `0 1 1 2 3 5`, car ce sont les 6 premiers termes de la suite de Fibonacci.

@@ -201,29 +201,3 @@ Exemple :
 $fruits = ["Pomme", "Banane", "Orange"];
 echo count($fruits);  // Affiche 3
 ```
-
----
-
-### **Exercice 1 : Créer un tableau de fruits et y accéder**
-1. Créez un tableau indexé appelé `$fruits` contenant les éléments suivants : "Pomme", "Banane", "Cerise", "Orange", "Mangue".
-2. Affichez le deuxième fruit du tableau (indice 1) en utilisant `echo`.
-
-### **Exercice 2 : Manipuler un tableau associatif de contacts**
-1. Créez un tableau associatif `$contact` avec les clés suivantes : "nom", "email", "telephone", et remplissez-les avec les informations de votre choix.
-2. Modifiez l'email du contact en changeant la valeur associée à la clé "email".
-3. Affichez l'ensemble des informations du contact avec une boucle `foreach`.
-
-### **Exercice 3 : Ajouter un élément à un tableau**
-1. Créez un tableau indexé `$chiffres` contenant les valeurs `[1, 2, 3, 4, 5]`.
-2. Ajoutez le chiffre `6` à la fin du tableau.
-3. Affichez l'intégralité du tableau après l'ajout de l'élément.
-
-### **Exercice 4 : Supprimer un élément d'un tableau associatif**
-1. Créez un tableau associatif `$personne` contenant les clés "prenom", "age", "ville", et remplissez-les avec des valeurs de votre choix.
-2. Supprimez la clé "ville" du tableau.
-3. Affichez le tableau modifié.
-
-### **Exercice 5 : Fusionner deux tableaux et afficher les éléments**
-1. Créez deux tableaux indexés `$nombres1` et `$nombres2` contenant respectivement `[10, 20, 30]` et `[40, 50, 60]`.
-2. Fusionnez les deux tableaux en un seul tableau.
-3. Affichez tous les éléments du tableau fusionné avec une boucle `foreach`.

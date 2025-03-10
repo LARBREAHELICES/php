@@ -172,7 +172,7 @@ $today = date("H:i:s");                           // 17:16:18
 $today = date("Y-m-d H:i:s");                     // 2001-03-10 17:16:18 (le format DATETIME de MySQL)
 
 echo "\n";
-
+```
 ---
 
 #### **Exercice 3 : Manipuler une variable de type chaîne**

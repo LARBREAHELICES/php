@@ -218,22 +218,8 @@ Les constantes sont accessibles partout dans le code, contrairement aux variable
 
 **Indication :** Vous pouvez toujours utiliser des opérations arithmétiques pour permuter les valeurs sans variable temporaire.
 
-**Code attendu :**
+
 ```php
-<?php
-  $a = 5;
-  $b = 10;
-  $c = 15;
-
-  // Permutation sans variable temporaire
-  $a = $a + $b + $c; // a = 30
-  $b = $a - ($b + $c); // b = 5
-  $c = $a - ($b + $c); // c = 10
-  $a = $a - ($b + $c); // a = 15
-
-  // Affichage des résultats après permutation
-  echo "a = $a, b = $b, c = $c";  // a = 15, b = 5, c = 10
-?>
 ```
 
 ---
@@ -246,20 +232,8 @@ Les constantes sont accessibles partout dans le code, contrairement aux variable
 
 **Indication :** Vous pouvez toujours utiliser l'addition et la soustraction pour effectuer l'échange.
 
-**Code attendu :**
 ```php
-<?php
-  $x = 100;
-  $y = 200;
 
-  // Inversion des variables sans variable temporaire
-  $x = $x + $y; // x = 300
-  $y = $x - $y; // y = 100
-  $x = $x - $y; // x = 200
-
-  // Affichage des résultats après inversion
-  echo "x = $x, y = $y";  // x = 200, y = 100
-?>
 ```
 
 ---
@@ -272,18 +246,9 @@ Les constantes sont accessibles partout dans le code, contrairement aux variable
 
 **Indication :** Vous pouvez utiliser l’opérateur `*` pour calculer le carré d’un nombre.
 
-**Code attendu :**
+
 ```php
-<?php
-  $a = 3;
-  $b = 4;
 
-  // Calcul des carrés et somme
-  $sumOfSquares = ($a * $a) + ($b * $b);
-
-  // Affichage du résultat
-  echo "La somme des carrés de $a et $b est : $sumOfSquares";  // La somme des carrés de 3 et 4 est : 25
-?>
 ```
 
 ---
@@ -296,14 +261,9 @@ Les constantes sont accessibles partout dans le code, contrairement aux variable
 
 **Indication :** Utilisez l’opérateur modulo `%` pour déterminer si le nombre est divisible par 2.
 
-**Code attendu :**
-```php
-<?php
-  $n = 7;
 
-  // Vérification si n est pair ou impair
-  echo ($n % 2 == 0) ? "$n est pair" : "$n est impair";  // 7 est impair
-?>
+```php
+
 ```
 
 ---
@@ -316,19 +276,9 @@ Les constantes sont accessibles partout dans le code, contrairement aux variable
 
 **Indication :** Vous pouvez multiplier directement les valeurs sans besoin de parenthèses.
 
-**Code attendu :**
+
 ```php
-<?php
-  $a = 2;
-  $b = 3;
-  $c = 4;
 
-  // Calcul du produit des trois variables
-  $product = $a * $b * $c;
-
-  // Affichage du résultat
-  echo "Le produit de $a, $b et $c est : $product";  // Le produit de 2, 3 et 4 est : 24
-?>
 ```
 
 ---
@@ -341,16 +291,7 @@ Les constantes sont accessibles partout dans le code, contrairement aux variable
 
 **Indication :** Utilisez l’opérateur `*` pour calculer les carrés des variables et faites la soustraction ensuite.
 
-**Code attendu :**
+
 ```php
-<?php
-  $a = 6;
-  $b = 4;
 
-  // Calcul de la différence des carrés
-  $differenceOfSquares = ($a * $a) - ($b * $b);
-
-  // Affichage du résultat
-  echo "La différence des carrés de $a et $b est : $differenceOfSquares";  // La différence des carrés de 6 et 4 est : 20
-?>
 ```

@@ -20,7 +20,8 @@ Exemple simple :
 ```
 
 - **<?php** : Balise d'ouverture PHP.
-- **?>** : Balise de fermeture PHP (optionnelle dans les fichiers contenant uniquement du PHP).
+- **?>** : Balise de fermeture PHP (optionnelle dans les fichiers contenant uniquement du PHP). Déconseillé 
+- Attention de ne pas mettre d'espace avant la balise d'ouverture du PHP dans un script PHP (que du script PHP).
 
 Dans un fichier mélangeant HTML et PHP, voici ce à quoi cela pourrait ressembler :
 
@@ -43,7 +44,7 @@ multiligne
 
 #### 2. **Exécution de fichiers PHP**
 
-Un fichier PHP doit être exécuté sur un serveur web avec PHP installé. Vous pouvez tester un fichier PHP via un navigateur en accédant à l'URL du fichier sur votre serveur local, par exemple `http://localhost:8080/monfichier.php`.
+Un fichier PHP doit être exécuté sur un serveur web avec PHP installé. Vous pouvez tester un fichier PHP via un navigateur en accédant à l'URL du fichier sur votre serveur local, par exemple `http://localhost/cours_php/index.php`.
 
 **Exemple d'utilisation de `phpinfo()`** :  
 Utilisez `phpinfo()` pour afficher les informations de configuration de PHP.

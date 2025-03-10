@@ -1,4 +1,4 @@
-# **Introduction PHP*  
+# **Introduction PHP**
 
 ## **Présentation du langage PHP**  
 

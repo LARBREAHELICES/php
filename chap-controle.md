@@ -64,7 +64,7 @@ Les opérateurs logiques sont utilisés pour combiner des expressions conditionn
 | Opérateur | Description                         | Exemple           |
 |-----------|-------------------------------------|-------------------|
 | `&&`      | ET logique                          | `$a && $b`        |
-| `||`      | OU logique                          | `$a || $b`        |
+| `\|\|`    | OU logique                          | `$a \|\| $b`      |
 | `!`       | Négation                            | `!$a`             |
 
 **Exemple** :

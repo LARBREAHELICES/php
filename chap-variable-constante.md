@@ -199,6 +199,11 @@ echo $message;
 2. Déclarez une variable `$nom` avec la valeur "Dupont".
 3. Concaténez ces deux variables avec l'opérateur `.` et affichez le résultat.
 
+```php
+
+echo $prenom + $nom ;
+```
+
 ---
 
 #### **Exercice 5 : Calculer la somme de deux nombres**
@@ -209,6 +214,11 @@ echo $message;
 1. Déclarez les variables `$a` et `$b` avec des valeurs numériques.
 2. Calculez la somme de ces deux variables.
 3. Affichez le résultat.
+
+```php
+
+echo $a + $b ;
+```
 
 ---
 
@@ -222,6 +232,18 @@ echo $message;
 3. Calculez le prix total en appliquant la taxe.
 4. Affichez le prix total.
 
+```php
+
+define('TAXE', .2 );
+
+$price = 10;
+
+echo $price * ( 1 + TVA );
+
+echo "\n" ;
+
+```
+
 ---
 
 #### **Exercice 7 : Vérifier le type de données d'une variable**
@@ -231,6 +253,14 @@ echo $message;
 **Indications :**
 1. Créez une variable `$valeur` et assignez-lui une valeur numérique.
 2. Utilisez la fonction `var_dump()` pour afficher le type et la valeur de la variable.
+
+```php
+
+$valeur = 3;
+
+var_dump($valeur);
+
+```
 
 ---
 
@@ -242,6 +272,10 @@ echo $message;
 1. Créez une variable `$age` et assignez-lui une valeur numérique.
 2. Utilisez `printf()` pour afficher un message formaté avec l'âge.
 
+```php
+$age = 100;
+var_dump($age);
+```
 ---
 
 ## Exercices supplémentaires 

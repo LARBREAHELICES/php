@@ -85,6 +85,20 @@ Les types de données de variables peuvent être :
 - **Float** : Nombre à virgule flottante
 - **Boolean** : Valeur booléenne (true/false)
 
+
+## Exercice 
+
+Créez un script pour permuter les valeurs des variables suivantes de manière circulaire -> 1, 2, 3 à 3, 1, 2 pour respectivement les variable ci-dessous.
+
+```php
+$a = 1;
+$b = 2;
+$c = 3;
+
+// séquence suivante : 3 1 2 
+```
+
+
 #### 2. **Les constantes en PHP**
 
 Une constante est une valeur qui ne peut pas être modifiée après sa déclaration. Elle est définie avec la fonction `define()`.

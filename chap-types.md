@@ -108,5 +108,3 @@ function addition(int $a, int $b): int {
 echo addition("3", "4"); // ❌ Erreur TypeError en mode strict
 ```
 ✅ Si `strict_types` est activé, **passer une chaîne à `int` déclenche une erreur**.  
-
----

@@ -194,7 +194,7 @@ Le nombre de lignes doit être défini par une variable `$n` que l'utilisateur p
 
 ---
 
-### **Exercice 3 : Inversion de chaîne de caractères**
+### **Exercice Inversion de chaîne de caractères**
 
 Écrivez une fonction PHP qui inverse une chaîne de caractères sans utiliser la fonction `strrev`. Utilisez une boucle `for` pour parcourir la chaîne de la fin vers le début et reconstruire la chaîne inversée.
 

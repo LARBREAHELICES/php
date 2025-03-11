@@ -181,6 +181,33 @@ $discount20 = discountGenerator(20);
 echo $discount20(100); // Affiche 80
 ```
 
+```php
+
+function discount(float $rate): callable{
+
+    return function(float $price) use($rate): float{
+
+        return $price - ($price * $rate / 100);
+    };
+}
+
+// appelée on lui passe paramètre
+$d10 = discount(10);
+echo '<pre>';
+echo $d10(100);
+echo '</pre>';
+
+echo '<pre>';
+echo $d10(800);
+echo '</pre>';
+
+$d20 = discount(20);
+echo '<pre>';
+echo $d20(100);
+echo '</pre>';
+
+```
+
 ### **Indications :**
 - Utilisez `use` pour capturer le taux de remise.
 - Testez avec plusieurs prix.
@@ -191,3 +218,12 @@ echo $discount20(100); // Affiche 80
 2. Créez une **fonction fléchée** qui prend un premier paramètre `$a` et retourne une autre fonction fléchée prenant `$b`.  
 3. La fonction retournée doit multiplier `$a` et `$b`, puis ajouter `$base`.  
 4. Testez la fonction avec plusieurs valeurs.
+
+```php
+
+$calcul = fn($base = 10) => fn($a) => fn($b) => $a * $b + $base ;
+
+echo '<pre>';
+echo $calcul()(9)(2);
+echo '</pre>';
+```

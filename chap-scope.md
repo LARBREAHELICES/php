@@ -152,9 +152,11 @@ function test() {
 }
 
 test();
-echo $a;
+echo $a; 
 ```
 ❓ **Question** : Quelle sera la valeur affichée ?  
+
+La valeur de \$a vaut 20 car la variable est globalisée avec le mot réservé global.
 
 2️⃣ Que se passe-t-il ici ?  
 ```php
@@ -170,4 +172,62 @@ echo $fn();
 echo $a;
 ```
 ❓ **Question** : Quelle valeur `$a` aura-t-il après l’appel de `$fn()` ?
+
+La valeur de \$a vaut 5 la fonction \$fn utilise `use` pour récupérer le contexte d'exécution dans lequel elle est définie.
+
+
+##  Extrait de code 
+
+```php
+
+$a = 10;
+
+// effet de bord le global remonte les scopes
+function test() {
+    // global $a;
+    // echo $a; 
+    // echo "<br/>";
+    // $a = 20;
+
+    function test2(){
+        global $a;
+        echo $a; 
+        $a = 20;
+        echo "<br/>";
+    }
+
+    test2();
+}
+
+test();
+echo $a;
+
+// Attention fonction anonyme les scopes sont imbriqués
+$f = function() use($a)  {
+    $g = function() use($a) {
+        echo $a;
+        echo "<br />";
+    };
+    return $g;
+};
+
+$f()();
+
+echo "<br />";
+$a = 5;
+
+$fn = function() use ($a) {
+    $a = 10;
+
+    return $a;
+};
+
+echo $fn();
+echo "<br />";
+echo $a;
+echo "<br />";
+```
+
+
+
 

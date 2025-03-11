@@ -319,8 +319,6 @@ Les fichiers soNt utiles pour stocker des doNNées.
 
 ```php
 
-```php
-
 $file = __DIR__ . '/data.txt';
 // Une chaine de caractères longue
 $str = <<<EOT
@@ -378,8 +376,6 @@ function format(array $char, string $occ = 'n'): string
 
     return implode('', $char);
 }
-
-
 ```
 
 ---

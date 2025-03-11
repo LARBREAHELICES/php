@@ -291,7 +291,8 @@ print_r($data);
 ## **1️ Exercice : Lecture d'un Fichier et Affichage**
 1. Créez un fichier `data.txt` contenant plusieurs lignes de texte.  
 2. Écrivez un script PHP qui ouvre ce fichier et affiche chaque ligne.  
-3. Ajoutez un numéro de ligne avant chaque affichage.  
+3. Ajoutez un numéro de ligne avant chaque affichage.
+4. Changez maintenant les valeurs dans le fichier et mettez en majuscule tous les mots contenant au moins un  "n".
 
 ### **Exemple de `data.txt` :**  
 ```
@@ -307,13 +308,29 @@ Les fichiers sont utiles pour stocker des données.
 3. Les fichiers sont utiles pour stocker des données.
 ```
 
+### **Exemple de sortie attendue :**  
+```
+PHP est uN laNgage puissANT.
+Il permet de créer des sites dyNAMIQUES.
+Les fichiers soNt utiles pour stocker des doNNées.
+```
+
 ---
 
 ## **2️ Exercice : Écriture et Lecture de Données Structurées**
 
 1. Créez un tableau associatif contenant plusieurs utilisateurs (`nom`, `email`, `âge`).  
-2. Enregistrez ces données dans un fichier `users.txt` sous un format structuré (JSON ou CSV).  
-3. Écrivez un second script PHP pour lire ce fichier et afficher les utilisateurs.  
+2. Enregistrez ces données dans un fichier `users.json` sous un format semi-structuré (JSON).  
+3. Écrivez un second script PHP pour lire ce fichier et afficher les utilisateurs.
+4. Modifiez l'age de chaque personne, ajoutez +2 ans.
+
+rmq : gestion des accents
+
+```php
+$data = ["message" => "Éléphant"];
+$json = json_encode($data, JSON_UNESCAPED_UNICODE);
+file_put_contents("fichier.json", $json);
+```
 
 ### **Exemple de sortie attendue :**  
 ```

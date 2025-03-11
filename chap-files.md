@@ -117,6 +117,26 @@ foreach ($lines as $line) {
 ```
 ✅ Charge le fichier sous forme de tableau (chaque ligne devient un élément).
 
+
+Remarques :
+
+```php
+// ouvre le fichier et récupère tout le contenu dans un tableau
+$content = file_get_contents($file );
+echo $content;
+
+echo "<br />";
+echo "<br />";
+
+// ouvre le fichier et récupère tout le contenu dans un tableau
+$lines = file($file); 
+var_dump($lines);
+foreach ($lines as $line) {
+    echo $line;
+    echo "<br />";
+}
+```
+
 ---
 
 ## 🟣 **4. Écrire dans un fichier**

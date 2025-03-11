@@ -318,23 +318,29 @@ Les fichiers soNt utiles pour stocker des doNNées.
 - Correction
 
 ```php
+<?php
 
 $file = __DIR__ . '/data.txt';
-// Une chaine de caractères longue
+// Définition du chemin du fichier `data.txt` dans le répertoire courant
+
 $str = <<<EOT
 PHP est un langage puissant.
 Il permet de creer des sites dynamiques.
 Les fichiers sont utiles pour stocker des donnees.
 EOT;
+// Définition d'une chaîne de texte multi-lignes qui sera utilisée pour initialiser le fichier si celui-ci n'existe pas
 
 if (!file_exists($file)) {
     file_put_contents($file, $str);
 }
+// Vérification de l'existence du fichier. S'il n'existe pas, on le crée et on y écrit la chaîne `$str`
 
-// ouvrir le fichier et lire le contenu avec erreur first
+// Vérification de l'existence du fichier avant ouverture, méthode "erreur first"
 if (!file_exists($file)) throw new Exception("Fichier pas créé");
+// Si le fichier ne peut pas être trouvé, une exception est levée, empêchant l'exécution du reste du script
 
 $handle = fopen($file, 'r+');
+// Ouverture du fichier en mode lecture et écriture (`r+`)
 
 $count = 1;
 while ($line = fgets($handle)) {
@@ -342,40 +348,37 @@ while ($line = fgets($handle)) {
     echo "$count $line";
     $count++;
 }
+// Lecture ligne par ligne du fichier et affichage du contenu avec un numéro de ligne incrémenté
 
-// transformer en tableau en utilisant le caractère de retour à la ligne dans le fichier
+// Transformer le contenu du fichier en tableau en utilisant le caractère de retour à la ligne
 $content = explode("\n", file_get_contents($file));
+// On lit tout le fichier d'un coup (`file_get_contents`) et on divise son contenu en un tableau (`explode("\n", ...)`)
+
 echo '<pre />';
-print_r($content);
+print_r($content);  // Affichage du tableau contenant les lignes du fichier
 echo '<pre />';
 
-$buffer = '';
-$sep = "\n";
-$lenContent = count($content) ;
+// Préparation de la nouvelle version du contenu du fichier
+$buffer = '';  // Initialisation d'un tampon pour stocker les modifications
+$sep = "\n";   // Définition du séparateur de ligne
+$lenContent = count($content);  // Récupération du nombre de lignes dans le tableau
+
 for ($i = 0; $i < $lenContent; $i++) {
+    // Remplacement de toutes les occurrences de 'n' par 'N' dans chaque ligne
+    $buffer .= str_replace('n', 'N', $content[$i]);  
     
-    if($i == $lenContent - 1)
-        $buffer .= format(str_split($content[$i], 1));
-    else 
-       $buffer .= format(str_split($content[$i], 1)) .$sep;
+    if ($i == $lenContent - 1) continue; // Évite d'ajouter un saut de ligne après la dernière ligne
+    
+    $buffer .= $sep; // Ajout d'un saut de ligne entre chaque ligne transformée
 }
 
 file_put_contents($file, $buffer);
+// Écriture du contenu modifié dans le fichier (remplace entièrement l'ancien contenu)
 
-// echo '<pre>';
-// print_r($buffer);
-// echo '</pre>';
-
-function format(array $char, string $occ = 'n'): string
-{
-    for ($i = 0; $i < count($char); $i++) {
-        if ($char[$i] == ' ' || $char[$i] == '') continue;
-
-        if (strtolower($char[$i]) === $occ) $char[$i] = strtoupper($char[$i]);
-    }
-
-    return implode('', $char);
-}
+// Affichage du nouveau contenu du fichier sous forme de chaîne
+echo '<pre>';
+print_r($buffer);
+echo '</pre>';
 ```
 
 ---

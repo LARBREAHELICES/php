@@ -338,38 +338,3 @@ Nom : Alice - Email : alice@example.com - Âge : 25
 Nom : Bob - Email : bob@example.com - Âge : 30
 Nom : Charlie - Email : charlie@example.com - Âge : 22
 ```
-
-## ✨ **3 Exercice Analyse des ventes d'un magasin**  
-
-Objectif :
-✅ Lire un fichier CSV contenant des ventes  
-✅ Calculer le chiffre d'affaires total  
-✅ Trouver l'article le plus vendu  
-
----
-
-### 📄 **Fichier `ventes.csv`**  
-Chaque ligne contient un article, une quantité vendue et un prix unitaire.  
-```
-Produit,Quantité,PrixUnitaire
-Ordinateur,5,800
-Clavier,10,50
-Souris,15,30
-Ecran,8,200
-Clavier,5,50
-Ordinateur,2,800
-```
-
-1. **Lire le fichier CSV** et stocker les données sous forme de tableau associatif.  
-2. **Calculer le chiffre d’affaires total** du magasin.  
-   > (Quantité * PrixUnitaire) pour chaque ligne  
-3. **Trouver l’article le plus vendu** (celui avec la plus grande quantité totale).  
-4. **Afficher les résultats** en console (pas de page web).  
-
----
-
-### 💻 **Solution attendue (exemple d'affichage)**
-```
-Chiffre d’affaires total : 10 700 €
-Produit le plus vendu : Clavier (15 unités)
-```

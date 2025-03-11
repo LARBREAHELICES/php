@@ -319,10 +319,10 @@ Les fichiers soNt utiles pour stocker des doNNées.
 
 ## **2️ Exercice : Écriture et Lecture de Données Structurées**
 
-1. Créez un tableau associatif contenant plusieurs utilisateurs (`nom`, `email`, `âge`).  
+1. Créez un tableau associatif contenant plusieurs utilisateurs (`name`, `email`, `age`).  
 2. Enregistrez ces données dans un fichier `users.json` sous un format semi-structuré (JSON).  
 3. Écrivez un second script PHP pour lire ce fichier et afficher les utilisateurs.
-4. Modifiez l'age de chaque personne, ajoutez +2 ans.
+4. Modifiez, dans le fichier, l'age de chaque personne, ajoutez +2 ans.
 
 rmq : gestion des accents
 

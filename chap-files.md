@@ -12,7 +12,7 @@
 En PHP, la gestion des fichiers permet de **lire, écrire, modifier, copier, supprimer** des fichiers. Cela est particulièrement utile pour :  
 ✅ Stocker des logs  
 ✅ Lire des configurations  
-✅ Gérer des bases de données légères (JSON, CSV, TXT)  
+✅ Gérer des données semi-structurées (JSON, CSV, TXT)  
 ✅ Traiter des fichiers d’import/export  
 
 ---

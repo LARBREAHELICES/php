@@ -53,6 +53,42 @@ fclose($file); // Ferme le fichier
 PHP propose plusieurs fonctions pour lire un fichier.
 
 ### 📌 **Lire ligne par ligne avec `fgets()`**  
+
+```php
+
+<?php
+
+// Ouvre le fichier en mode lecture ("r")
+
+// chemin absolu plus rapide pour ouvrir un fichier par rapport au chemin relatif 
+$file = __DIR__ . '/post.txt';
+
+if (file_exists($file)) {
+    $handle = fopen($file, "r");
+    // lecture de chaque ligne avec un bool false en de fichier 
+    while ($line = fgets($handle)) {
+        echo $line;
+        echo "<br />";
+    }
+    // retour au début du fichier
+    rewind($handle);
+
+    echo "<br />";
+    echo "<br />";
+    while ($line = fgets($handle)) {
+        echo $line;
+        echo "<br />";
+    }
+
+    // fermeture du fichier 
+    fclose($handle);
+    $handle =  null;
+}
+
+```
+
+Une autre manière de parcourir un fichier avec la fonction feof qui renvoie true quand on est à la fin du fichier.
+
 ```php
 $file = fopen("monfichier.txt", "r");
 
@@ -62,6 +98,8 @@ while (!feof($file)) { // Tant que ce n'est pas la fin du fichier
 
 fclose($file);
 ```
+
+
 
 ### 📌 **Lire tout le fichier avec `file_get_contents()`**  
 ```php

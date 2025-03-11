@@ -1,4 +1,4 @@
-### ** Maîtriser les opérateurs, les structures de contrôle et les boucles en PHP**
+### **Maîtriser les opérateurs, les structures de contrôle et les boucles en PHP**
 
 ---
 

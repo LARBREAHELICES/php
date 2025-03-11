@@ -170,4 +170,3 @@ echo $fn();
 echo $a;
 ```
 ❓ **Question** : Quelle valeur `$a` aura-t-il après l’appel de `$fn()` ?
-

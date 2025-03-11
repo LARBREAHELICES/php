@@ -1,4 +1,4 @@
-# 📂 **Gestion des fichiers en PHP 8.3**  
+#  **Gestion des fichiers en PHP 8.3**  
 
 ## 🎯 **Objectifs du cours**  
 - Lire et écrire des fichiers en PHP  

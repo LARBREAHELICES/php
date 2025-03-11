@@ -315,6 +315,73 @@ Il permet de créer des sites dyNAMIQUES.
 Les fichiers soNt utiles pour stocker des doNNées.
 ```
 
+- Correction
+
+```php
+
+```php
+
+$file = __DIR__ . '/data.txt';
+// Une chaine de caractères longue
+$str = <<<EOT
+PHP est un langage puissant.
+Il permet de creer des sites dynamiques.
+Les fichiers sont utiles pour stocker des donnees.
+EOT;
+
+if (!file_exists($file)) {
+    file_put_contents($file, $str);
+}
+
+// ouvrir le fichier et lire le contenu avec erreur first
+if (!file_exists($file)) throw new Exception("Fichier pas créé");
+
+$handle = fopen($file, 'r+');
+
+$count = 1;
+while ($line = fgets($handle)) {
+    echo '<br />';
+    echo "$count $line";
+    $count++;
+}
+
+// transformer en tableau en utilisant le caractère de retour à la ligne dans le fichier
+$content = explode("\n", file_get_contents($file));
+echo '<pre />';
+print_r($content);
+echo '<pre />';
+
+$buffer = '';
+$sep = "\n";
+$lenContent = count($content) ;
+for ($i = 0; $i < $lenContent; $i++) {
+    
+    if($i == $lenContent - 1)
+        $buffer .= format(str_split($content[$i], 1));
+    else 
+       $buffer .= format(str_split($content[$i], 1)) .$sep;
+}
+
+file_put_contents($file, $buffer);
+
+// echo '<pre>';
+// print_r($buffer);
+// echo '</pre>';
+
+function format(array $char, string $occ = 'n'): string
+{
+    for ($i = 0; $i < count($char); $i++) {
+        if ($char[$i] == ' ' || $char[$i] == '') continue;
+
+        if (strtolower($char[$i]) === $occ) $char[$i] = strtoupper($char[$i]);
+    }
+
+    return implode('', $char);
+}
+
+
+```
+
 ---
 
 ## **2️ Exercice : Écriture et Lecture de Données Structurées**
@@ -331,6 +398,7 @@ $data = ["message" => "Éléphant"];
 $json = json_encode($data, JSON_UNESCAPED_UNICODE);
 file_put_contents("fichier.json", $json);
 ```
+
 
 ### **Exemple de sortie attendue :**  
 ```

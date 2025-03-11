@@ -66,7 +66,7 @@ Array
 
 #### **2. Cloner un Tableau avec le Spread Operator**
 
-Le spread operator permet également de faire une copie d'un tableau sans modifier l'original.
+Le spread operator permet également de faire une copie d'un tableau sans modifier l'original, mais une copie dans une variable classique fait également une copie.
 
 ##### **Exemple : Cloner un tableau**
 
@@ -75,6 +75,9 @@ $array = [1, 2, 3];
 
 // Créer une copie du tableau
 $copy = [...$array];
+$copy = $array  ; // fait également une copie séparée
+
+// Mais un spread 
 
 print_r($copy);
 ```
@@ -89,7 +92,23 @@ Array
 )
 ```
 
-- **Explication** : Ici, `$copy` est une copie du tableau `$array`. Si vous modifiez `$copy`, le tableau `$array` reste inchangé.
+Pour que deux tableaux soient liés vous devez utiliser `&` pour relier ces deux tableaux. 
+
+```php
+$a = [1, 2, 3];
+$b = &$a;
+
+$b[0] = 9 ;
+
+print_r($a);
+
+Array
+(
+    [0] => 9
+    [1] => 2
+    [2] => 3
+)
+```
 
 #### **3. Modifier un Tableau en Utilisant le Spread Operator**
 

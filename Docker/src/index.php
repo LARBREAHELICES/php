@@ -17,14 +17,13 @@ require_once __DIR__ . '/services/service_model.php';
         <h1 class="text-2xl font-bold text-center mb-4">TODO List</h1>
 
         <!-- Formulaire -->
-        <form action="#" method="POST" class="flex mb-4">
+        <form action="<?php echo './services/service_task.php' ?>" method="POST" class="flex mb-4">
             <input
                 type="text"
                 name="task"
                 placeholder="Ajouter une tâche"
                 required
                 class="flex-1 border border-gray-300 p-2 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <input type="hidden" name="csrf_token" value="token" />
 
             <button
                 type="submit"

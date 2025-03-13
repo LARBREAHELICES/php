@@ -9,3 +9,9 @@ function tasks(){
 
     return $stmt;
 }
+
+function insert($task){
+    global $pdo;
+
+    $pdo->exec('INSERT INTO task (title) VALUE () ');
+}

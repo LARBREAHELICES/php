@@ -53,6 +53,42 @@ fclose($file); // Ferme le fichier
 PHP propose plusieurs fonctions pour lire un fichier.
 
 ### 📌 **Lire ligne par ligne avec `fgets()`**  
+
+```php
+
+<?php
+
+// Ouvre le fichier en mode lecture ("r")
+
+// chemin absolu plus rapide pour ouvrir un fichier par rapport au chemin relatif 
+$file = __DIR__ . '/post.txt';
+
+if (file_exists($file)) {
+    $handle = fopen($file, "r");
+    // lecture de chaque ligne avec un bool false en de fichier 
+    while ($line = fgets($handle)) {
+        echo $line;
+        echo "<br />";
+    }
+    // retour au début du fichier
+    rewind($handle);
+
+    echo "<br />";
+    echo "<br />";
+    while ($line = fgets($handle)) {
+        echo $line;
+        echo "<br />";
+    }
+
+    // fermeture du fichier 
+    fclose($handle);
+    $handle =  null;
+}
+
+```
+
+Une autre manière de parcourir un fichier avec la fonction feof qui renvoie true quand on est à la fin du fichier.
+
 ```php
 $file = fopen("monfichier.txt", "r");
 
@@ -62,6 +98,8 @@ while (!feof($file)) { // Tant que ce n'est pas la fin du fichier
 
 fclose($file);
 ```
+
+
 
 ### 📌 **Lire tout le fichier avec `file_get_contents()`**  
 ```php
@@ -78,6 +116,26 @@ foreach ($lines as $line) {
 }
 ```
 ✅ Charge le fichier sous forme de tableau (chaque ligne devient un élément).
+
+
+Remarques :
+
+```php
+// ouvre le fichier et récupère tout le contenu dans un tableau
+$content = file_get_contents($file );
+echo $content;
+
+echo "<br />";
+echo "<br />";
+
+// ouvre le fichier et récupère tout le contenu dans un tableau
+$lines = file($file); 
+var_dump($lines);
+foreach ($lines as $line) {
+    echo $line;
+    echo "<br />";
+}
+```
 
 ---
 
@@ -233,7 +291,8 @@ print_r($data);
 ## **1️ Exercice : Lecture d'un Fichier et Affichage**
 1. Créez un fichier `data.txt` contenant plusieurs lignes de texte.  
 2. Écrivez un script PHP qui ouvre ce fichier et affiche chaque ligne.  
-3. Ajoutez un numéro de ligne avant chaque affichage.  
+3. Ajoutez un numéro de ligne avant chaque affichage.
+4. Changez maintenant les valeurs dans le fichier et mettez en majuscule tous les mots contenant au moins un  "n".
 
 ### **Exemple de `data.txt` :**  
 ```
@@ -249,52 +308,100 @@ Les fichiers sont utiles pour stocker des données.
 3. Les fichiers sont utiles pour stocker des données.
 ```
 
+### **Exemple de sortie attendue :**  
+```
+PHP est uN laNgage puissANT.
+Il permet de créer des sites dyNAMIQUES.
+Les fichiers soNt utiles pour stocker des doNNées.
+```
+
+- Correction
+
+```php
+<?php
+
+$file = __DIR__ . '/data.txt';
+// Définition du chemin du fichier `data.txt` dans le répertoire courant
+
+$str = <<<EOT
+PHP est un langage puissant.
+Il permet de creer des sites dynamiques.
+Les fichiers sont utiles pour stocker des donnees.
+EOT;
+// Définition d'une chaîne de texte multi-lignes qui sera utilisée pour initialiser le fichier si celui-ci n'existe pas
+
+if (!file_exists($file)) {
+    file_put_contents($file, $str);
+}
+// Vérification de l'existence du fichier. S'il n'existe pas, on le crée et on y écrit la chaîne `$str`
+
+// Vérification de l'existence du fichier avant ouverture, méthode "erreur first"
+if (!file_exists($file)) throw new Exception("Fichier pas créé");
+// Si le fichier ne peut pas être trouvé, une exception est levée, empêchant l'exécution du reste du script
+
+$handle = fopen($file, 'r+');
+// Ouverture du fichier en mode lecture et écriture (`r+`)
+
+$count = 1;
+while ($line = fgets($handle)) {
+    echo '<br />';
+    echo "$count $line";
+    $count++;
+}
+// Lecture ligne par ligne du fichier et affichage du contenu avec un numéro de ligne incrémenté
+
+// Transformer le contenu du fichier en tableau en utilisant le caractère de retour à la ligne
+$content = explode("\n", file_get_contents($file));
+// On lit tout le fichier d'un coup (`file_get_contents`) et on divise son contenu en un tableau (`explode("\n", ...)`)
+
+echo '<pre />';
+print_r($content);  // Affichage du tableau contenant les lignes du fichier
+echo '<pre />';
+
+// Préparation de la nouvelle version du contenu du fichier
+$buffer = '';  // Initialisation d'un tampon pour stocker les modifications
+$sep = "\n";   // Définition du séparateur de ligne
+$lenContent = count($content);  // Récupération du nombre de lignes dans le tableau
+
+for ($i = 0; $i < $lenContent; $i++) {
+    // Remplacement de toutes les occurrences de 'n' par 'N' dans chaque ligne
+    $buffer .= str_replace('n', 'N', $content[$i]);  
+    
+    if ($i == $lenContent - 1) continue; // Évite d'ajouter un saut de ligne après la dernière ligne
+    
+    $buffer .= $sep; // Ajout d'un saut de ligne entre chaque ligne transformée
+}
+
+file_put_contents($file, $buffer);
+// Écriture du contenu modifié dans le fichier (remplace entièrement l'ancien contenu)
+
+// Affichage du nouveau contenu du fichier sous forme de chaîne
+echo '<pre>';
+print_r($buffer);
+echo '</pre>';
+```
+
 ---
 
 ## **2️ Exercice : Écriture et Lecture de Données Structurées**
 
-1. Créez un tableau associatif contenant plusieurs utilisateurs (`nom`, `email`, `âge`).  
-2. Enregistrez ces données dans un fichier `users.txt` sous un format structuré (JSON ou CSV).  
-3. Écrivez un second script PHP pour lire ce fichier et afficher les utilisateurs.  
+1. Créez un tableau associatif contenant plusieurs utilisateurs (`name`, `email`, `age`).  
+2. Enregistrez ces données dans un fichier `users.json` sous un format semi-structuré (JSON).  
+3. Écrivez un second script PHP pour lire ce fichier et afficher les utilisateurs.
+4. Modifiez, dans le fichier, l'age de chaque personne, ajoutez +2 ans.
+
+rmq : gestion des accents
+
+```php
+$data = ["message" => "Éléphant"];
+$json = json_encode($data, JSON_UNESCAPED_UNICODE);
+file_put_contents("fichier.json", $json);
+```
+
 
 ### **Exemple de sortie attendue :**  
 ```
 Nom : Alice - Email : alice@example.com - Âge : 25
 Nom : Bob - Email : bob@example.com - Âge : 30
 Nom : Charlie - Email : charlie@example.com - Âge : 22
-```
-
-## ✨ **3 Exercice Analyse des ventes d'un magasin**  
-
-Objectif :
-✅ Lire un fichier CSV contenant des ventes  
-✅ Calculer le chiffre d'affaires total  
-✅ Trouver l'article le plus vendu  
-
----
-
-### 📄 **Fichier `ventes.csv`**  
-Chaque ligne contient un article, une quantité vendue et un prix unitaire.  
-```
-Produit,Quantité,PrixUnitaire
-Ordinateur,5,800
-Clavier,10,50
-Souris,15,30
-Ecran,8,200
-Clavier,5,50
-Ordinateur,2,800
-```
-
-1. **Lire le fichier CSV** et stocker les données sous forme de tableau associatif.  
-2. **Calculer le chiffre d’affaires total** du magasin.  
-   > (Quantité * PrixUnitaire) pour chaque ligne  
-3. **Trouver l’article le plus vendu** (celui avec la plus grande quantité totale).  
-4. **Afficher les résultats** en console (pas de page web).  
-
----
-
-### 💻 **Solution attendue (exemple d'affichage)**
-```
-Chiffre d’affaires total : 10 700 €
-Produit le plus vendu : Clavier (15 unités)
 ```

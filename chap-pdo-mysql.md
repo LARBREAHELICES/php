@@ -237,7 +237,7 @@ CREATE TABLE tasks (
 
 ### **Exemple d'insertion de données**
 ```sql
-INSERT INTO tasks (title, description, status) 
+INSERT INTO task (title, description, status) 
 VALUES 
 ('Acheter du pain', 'Aller à la boulangerie avant 19h', 'pending'),
 ('Réviser le cours PDO', 'Lire la documentation et faire des tests', 'in_progress'),

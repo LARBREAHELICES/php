@@ -2,6 +2,23 @@
 
 Données structurées.
 
+Créez une base de données dans MySQL
+
+```sql
+CREATE DATABASE db_todolist CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE db_todolist;
+
+CREATE TABLE IF NOT EXISTS task (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    status ENUM('pending', 'completed', 'delete') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
+
 ## **1. Introduction à PDO**  
 
 PDO (*PHP Data Objects*) est une extension PHP permettant d’interagir avec différentes bases de données de manière sécurisée et orientée objet. Son principal avantage est d’être agnostique vis-à-vis du moteur de base de données utilisé (MySQL, PostgreSQL, SQLite, etc.).  

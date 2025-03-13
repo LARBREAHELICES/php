@@ -1,68 +1,52 @@
 <?php
-// phpinfo() ; 
+require_once __DIR__ . '/services/service_model.php';
 
-$name = "Alan";
-$age = 45;
+?>
+<!DOCTYPE html>
+<html lang="fr">
 
-// printf("Name : %s, age : %d", $name, $age);
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-$a = 1;
-$b = 2;
-$c = 3;
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-4">TODO List</h1>
 
-printf('$a %d, $b %d, $c %d', $a, $b, $c);
-echo "\n";
-// algo variable temporaire
-$t = $a;
-$a = $c;
-$c = $b;
-$b = $t;
+        <!-- Formulaire -->
+        <form action="#" method="POST" class="flex mb-4">
+            <input
+                type="text"
+                name="task"
+                placeholder="Ajouter une tâche"
+                required
+                class="flex-1 border border-gray-300 p-2 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input type="hidden" name="csrf_token" value="token" />
 
-echo "\n";
+            <button
+                type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600 transition">
+                Ajouter
+            </button>
+        </form>
 
-printf('$a %d, $b %d, $c %d', $a, $b, $c);
+        <!-- Liste des tâches -->
+        <ul class="space-y-2">
+            <?php $stmt = tasks() ; while($task = $stmt->fetch()) : ?>
+                <li class="flex justify-between items-center bg-gray-200 p-2 rounded">
+                    <span class="ml-2 text-sm"><?php echo $task['title'] ?></span>
+                    <span class="ml-2 text-sm"><?php echo $task['status'] ?></span>
+                    <button
+                        class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition">
+                        Supprimer
+                    </button>
+                </li>
+            <?php endwhile; ?>
+        </ul>
+    </div>
+</body>
 
-
-echo "\n";
-
-$a = 1;
-$b = 2;
-$c = 3;
-
-// algo 
-$a = $a + $b;
-$b = $a - $b;
-$c =  $a - $b;
-printf('$a %d, $b %d, $c %d', $a, $b, $c);
-
-echo "\n";
-
-$a = 1;
-$b = 2;
-$c = 3;
-
-// assignation par décomposition 
-[$a, $b, $c] = [$c, $a, $b] ;
-
-printf('$a %d, $b %d, $c %d', $a, $b, $c);
-
-echo "\n";
-
-// $a + "Bonjour";
-
-echo "2" + 6 ;
-
-echo "\n";
-
-// définition d'une constante
-
-define("PI", 3.14159);
-
-echo PI ; 
-
-
-echo "<br />";
-echo "<br />";
-
-// ./ chemin relatif 
-echo "<a href='./Exercice_variable_constante.php'>Exercice variable</a>";
+</html>

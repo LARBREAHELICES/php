@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/services/service_model.php';
 
+session_start();
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -25,6 +28,7 @@ require_once __DIR__ . '/services/service_model.php';
                 required
                 class="flex-1 border border-gray-300 p-2 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
+            <input type="hidden" value="<?php echo $_SESSION['csrf_token'] ?>" name="csrf_token" />
             <button
                 type="submit"
                 class="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600 transition">
